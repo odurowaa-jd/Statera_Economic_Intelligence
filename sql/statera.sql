@@ -1,0 +1,66 @@
+-- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
+--
+-- Host: localhost    Database: statera_db
+-- ------------------------------------------------------
+-- Server version	9.7.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+-- SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+-- SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '36bce900-8939-11f1-9565-482ae3935de0:1-104';
+
+--
+-- Table structure for table `macro_indicators`
+--
+
+DROP TABLE IF EXISTS `macro_indicators`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `macro_indicators` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `record_date` date NOT NULL,
+  `inflation_rate` decimal(5,2) DEFAULT NULL,
+  `exchange_rate_usd` decimal(10,4) DEFAULT NULL,
+  `exchange_rate_gbp` decimal(10,4) DEFAULT NULL,
+  `exchange_rate_eur` decimal(10,4) DEFAULT NULL,
+  `gdp_growth` decimal(5,2) DEFAULT NULL,
+  `notes` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `macro_indicators`
+--
+
+LOCK TABLES `macro_indicators` WRITE;
+/*!40000 ALTER TABLE `macro_indicators` DISABLE KEYS */;
+INSERT INTO `macro_indicators` VALUES (1,'2016-01-31',19.00,3.8000,5.4000,4.1000,3.10,'Fiscal year begins with high inflationary pressure.'),(2,'2016-02-28',18.50,3.8200,5.3500,4.1500,3.10,'Energy sector challenges impacting manufacturing.'),(3,'2016-03-31',19.20,3.8500,5.4000,4.3000,3.10,'Dumsor crisis peak.'),(4,'2016-04-30',18.70,3.8800,5.4500,4.3500,3.20,'Utility price hikes.'),(5,'2016-05-31',18.90,3.9000,5.5000,4.4000,3.20,'Food price volatility.'),(6,'2016-06-30',18.40,3.9500,5.2000,4.4000,3.40,'Import demand rising.'),(7,'2016-07-31',16.70,3.9800,5.2500,4.4200,3.40,'Slight cooling in non-food inflation.'),(8,'2016-08-31',16.90,4.0000,5.3000,4.4500,3.40,'Harvest season impacts.'),(9,'2016-09-30',17.20,4.1000,5.3500,4.5000,3.50,'Pre-election spending starts.'),(10,'2016-10-31',15.80,4.1500,5.2000,4.4800,3.50,'Tight monetary policy.'),(11,'2016-11-30',15.50,4.1800,5.1500,4.4500,3.60,'Election uncertainty.'),(12,'2016-12-31',15.40,4.2000,5.1000,4.4000,3.70,'Election year concludes with high deficit.'),(13,'2017-01-31',13.30,4.2500,5.3000,4.5000,6.00,'New administration focuses on stabilization.'),(14,'2017-02-28',13.20,4.3500,5.4000,4.6000,6.00,'Business confidence rises.'),(15,'2017-03-31',12.80,4.4000,5.5000,4.7000,6.50,'Oil production increases.'),(16,'2017-04-30',13.00,4.3800,5.4500,4.6500,6.50,'Cedi shows resilience.'),(17,'2017-05-31',12.60,4.4200,5.5500,4.7500,7.00,'Sankofa oil field impact.'),(18,'2017-06-30',12.10,4.4000,5.7000,5.0000,8.10,'GDP spikes due to oil exports.'),(19,'2017-07-31',11.90,4.4100,5.7500,5.1000,8.10,'Inflation continues decline.'),(20,'2017-08-31',12.30,4.4300,5.8000,5.1500,8.10,'Agriculture sector rebound.'),(21,'2017-09-30',12.20,4.4500,5.8500,5.2000,7.90,'Fiscal consolidation gains.'),(22,'2017-10-31',11.60,4.4800,5.9000,5.2500,7.90,'Free SHS policy launched.'),(23,'2017-11-30',11.70,4.5000,5.9500,5.2800,7.90,'Service sector growth.'),(24,'2017-12-31',11.80,4.5000,6.0000,5.3000,7.90,'Year ends with robust growth.'),(25,'2022-01-31',13.90,6.2000,8.4000,7.1000,3.50,'Global supply chain shocks.'),(26,'2022-02-28',15.70,6.8000,9.1000,7.8000,3.50,'Russia-Ukraine war impacts.'),(27,'2022-03-31',19.40,7.5000,9.8000,8.2000,3.30,'Fuel prices soar.'),(28,'2022-04-30',23.60,7.8000,10.1000,8.5000,3.30,'Ratings downgrade.'),(29,'2022-05-31',27.60,8.1000,10.4000,8.8000,3.30,'Currency panic begins.'),(30,'2022-06-30',29.80,8.5000,10.2000,8.9000,4.80,'Import costs surge.'),(31,'2022-07-31',31.70,9.2000,11.0000,9.4000,4.80,'Central Bank hikes rates.'),(32,'2022-08-31',33.90,10.1000,12.2000,10.5000,4.80,'Forex scarcity.'),(33,'2022-09-30',37.20,10.5000,12.1000,11.2000,2.90,'Capital flight.'),(34,'2022-10-31',40.40,13.5000,15.2000,13.5000,2.90,'Cedi freefall.'),(35,'2022-11-30',50.30,14.2000,16.5000,14.8000,2.90,'Hyperinflationary trend.'),(36,'2022-12-31',54.10,13.1000,15.8000,13.9000,3.20,'DDEP launch announced.'),(37,'2026-01-31',7.50,11.8000,15.0000,12.8000,6.00,'New year stabilization.'),(38,'2026-02-28',6.80,11.7000,14.9000,12.7000,6.00,'Reserve levels healthy.'),(39,'2026-03-31',5.20,11.5000,14.8000,12.5000,6.20,'Strong Q1 performance.'),(40,'2026-04-30',4.80,11.4000,14.6000,12.3000,6.20,'FDI inflows increasing.'),(41,'2026-05-31',4.10,11.2000,14.3000,12.1000,6.30,'Single digit era solid.'),(42,'2026-06-30',3.80,10.9000,13.8000,11.7000,6.40,'Stability fully achieved.'),(43,'2026-07-31',3.40,11.0000,13.9000,11.8000,6.40,'Seasonal FX pressure managed.'),(44,'2026-08-31',3.20,11.1000,14.1000,11.9000,6.50,'Active tracking month.'),(45,'2018-01-31',10.30,4.5000,6.2500,5.5000,6.20,'Fiscal consolidation starts; banking sector cleanup begins.'),(46,'2018-02-28',10.60,4.5200,6.2800,5.5500,6.20,'Tight monetary policy maintained.'),(47,'2018-03-31',10.40,4.5500,6.3500,5.6000,6.30,'Strong cocoa exports support the Cedi.'),(48,'2018-04-30',9.60,4.5800,6.4000,5.6500,6.30,'Inflation drops to single digits.'),(49,'2018-05-31',9.80,4.6500,6.4500,5.7000,6.30,'Rising global oil prices impact transport.'),(50,'2018-06-30',10.00,4.7500,6.3000,5.6000,6.30,'Banking license revocations intensify.'),(51,'2018-07-31',9.60,4.7800,6.2800,5.5800,6.30,'Resilience in the extractive sector.'),(52,'2018-08-31',9.90,4.8000,6.2000,5.5500,6.30,'Consolidated Bank Ghana (CBG) formed.'),(53,'2018-09-30',9.80,4.8200,6.2500,5.6200,6.20,'Non-oil GDP shows steady expansion.'),(54,'2018-10-31',9.50,4.8500,6.3000,5.5500,6.20,'Service sector performance peaks.'),(55,'2018-11-30',9.30,4.8500,6.2500,5.5000,6.20,'Price stability continues.'),(56,'2018-12-31',9.40,4.8500,6.1500,5.5000,6.20,'Year ends with single-digit inflation success.'),(57,'2019-01-31',9.00,4.9000,6.4000,5.6000,6.50,'Ghana prepares to exit the IMF ECF program.'),(58,'2019-02-28',9.20,5.1000,6.6000,5.8000,6.50,'Cedi faces seasonal depreciation.'),(59,'2019-03-31',9.30,5.2500,6.9000,5.9500,6.50,'Eurobond oversubscription boosts reserves.'),(60,'2019-04-30',9.50,5.1500,6.7000,5.8000,6.50,'IMF program successfully concluded.'),(61,'2019-05-31',9.40,5.2000,6.6500,5.8500,6.50,'Consumer demand remains robust.'),(62,'2019-06-30',9.10,5.3500,6.8000,6.1000,6.50,'Strong growth in the construction sector.'),(63,'2019-07-31',9.40,5.4000,6.7000,6.0500,6.50,'New cedi re-denomination anniversary.'),(64,'2019-08-31',7.80,5.4200,6.6500,6.0000,6.50,'Re-basing of CPI basket leads to lower figures.'),(65,'2019-09-30',7.60,5.4500,6.7500,5.9500,6.50,'Agricultural harvest impacts food prices.'),(66,'2019-10-31',7.70,5.5000,7.1000,6.1500,6.50,'Year of Return tourism influx begins.'),(67,'2019-11-30',8.20,5.5500,7.2000,6.1000,6.50,'Service sector sees significant boost.'),(68,'2019-12-31',7.90,5.6000,7.2000,6.1000,6.50,'Historical tourism peak; high FX inflows.'),(69,'2020-01-31',7.80,5.6500,7.4000,6.2000,4.90,'Pre-pandemic stability.'),(70,'2020-02-29',7.80,5.6000,7.2000,6.1000,4.90,'Global supply chains begin to stutter.'),(71,'2020-03-31',7.80,5.6500,7.1000,6.2000,4.90,'First COVID cases; lockdown announced.'),(72,'2020-04-30',10.60,5.7500,7.2000,6.3000,0.40,'Panic buying and supply shocks drive inflation.'),(73,'2020-05-31',11.30,5.7500,7.0500,6.3500,0.40,'Lockdown impacts SMEs and local trade.'),(74,'2020-06-30',11.20,5.8000,7.1500,6.4500,0.40,'Border closures impact export revenues.'),(75,'2020-07-31',11.40,5.8200,7.4000,6.8000,0.40,'Government announces CAP stimulus.'),(76,'2020-08-31',10.50,5.8500,7.7000,6.9500,0.40,'Easing of restrictions begins.'),(77,'2020-09-30',10.40,5.8500,7.5000,6.8500,0.40,'Resilience in gold prices helps GHS.'),(78,'2020-10-31',10.10,5.8500,7.6000,6.9000,0.90,'Gradual recovery of services.'),(79,'2020-11-30',9.80,5.8500,7.8000,6.9500,0.90,'Election year spending amidst pandemic.'),(80,'2020-12-31',10.40,5.8500,8.0000,7.2000,0.90,'Year ends with negative growth in key sectors.'),(81,'2021-01-31',9.90,5.8500,8.0000,7.1000,3.10,'Vaccination rollout expectations.'),(82,'2021-02-28',10.30,5.8500,8.2000,7.1500,3.10,'Food inflation remains elevated.'),(83,'2021-03-31',10.30,5.8000,8.0000,6.8000,3.10,'Eurobond issuance successful ($3bn).'),(84,'2021-04-30',8.50,5.8000,8.1000,7.0000,3.90,'Base effect from April 2020 leads to dip.'),(85,'2021-05-31',7.50,5.8200,8.2500,7.1000,3.90,'Lowest inflation in recent history.'),(86,'2021-06-30',7.80,5.9000,8.2000,7.0000,3.90,'Oil prices begin to climb globally.'),(87,'2021-07-31',9.00,6.0000,8.3500,7.1500,5.40,'Rebound in industrial activity.'),(88,'2021-08-31',9.70,6.0500,8.3000,7.1500,5.40,'Global shipping costs impact imports.'),(89,'2021-09-30',10.60,6.1000,8.3000,7.2000,5.40,'Currency pressure starts to build.'),(90,'2021-10-31',11.00,6.1500,8.4500,7.1500,5.40,'Fuel price adjustments.'),(91,'2021-11-30',12.20,6.2000,8.3000,7.0500,5.40,'Concerns over debt sustainability.'),(92,'2021-12-31',12.60,6.2500,8.4500,7.1000,5.40,'Year ends with rising inflationary risks.'),(93,'2023-01-31',53.60,11.5000,14.1000,12.4000,2.80,'DDEP (Debt Exchange) launched to unlock IMF support.'),(94,'2023-02-28',52.80,12.2000,14.8000,13.0000,2.80,'High cost of utilities impacts consumer price index.'),(95,'2023-03-31',45.00,11.8000,14.4000,12.7000,2.90,'First sign of significant disinflation in 18 months.'),(96,'2023-04-30',41.20,11.2000,14.0000,12.3000,2.90,'Cedi strengthens on IMF deal optimism.'),(97,'2023-05-31',42.20,11.1000,13.9000,12.1000,3.20,'IMF approves $3bn Extended Credit Facility.'),(98,'2023-06-30',42.50,11.5000,14.6000,12.5000,3.20,'Cocoa sector resilience supports GDP.'),(99,'2023-07-31',43.10,11.6000,14.9000,12.8000,3.20,'Food inflation remains a structural challenge.'),(100,'2023-08-31',40.10,11.4000,14.5000,12.4000,3.50,'Base effects begin to favor lower inflation prints.'),(101,'2023-09-30',38.10,11.7000,14.3000,12.2000,3.50,'External debt restructuring negotiations continue.'),(102,'2023-10-31',35.20,11.9000,14.5000,12.6000,3.80,'Service sector shows rebound in activity.'),(103,'2023-11-30',26.40,12.1000,15.3000,13.2000,3.80,'Dramatic drop in inflation following currency stability.'),(104,'2023-12-31',23.20,12.1000,15.4000,13.3000,3.80,'Fiscal year ends with halved inflation rate.'),(105,'2024-01-31',23.50,12.3000,15.6000,13.4000,4.20,'New year tax adjustments impacting pricing.'),(106,'2024-02-29',23.20,12.8000,16.2000,14.0000,4.20,'Import demand triggers currency depreciation.'),(107,'2024-03-31',25.80,13.1000,16.5000,14.2000,4.80,'Gold mining output boosts export earnings.'),(108,'2024-04-30',25.00,13.8000,17.3000,14.9000,4.80,'Pressure on GHS continues despite BoG intervention.'),(109,'2024-05-31',23.10,14.5000,18.5000,15.6000,4.80,'IMF second review successfully completed.'),(110,'2024-06-30',22.80,14.8000,18.8000,15.9000,5.70,'Significant growth in the non-oil sector.'),(111,'2024-07-31',20.90,15.1000,19.4000,16.3000,5.70,'Disinflation remains on track despite FX volatility.'),(112,'2024-08-31',20.40,15.4000,19.8000,16.8000,5.70,'Active election-year market pressures.'),(113,'2024-09-30',21.50,15.6000,20.2000,17.1000,4.50,'Secondary inflationary effects from currency.'),(114,'2024-10-31',21.00,15.8000,20.4000,17.2000,4.50,'Fiscal discipline maintained during Q4.'),(115,'2024-11-30',20.50,15.5000,19.8000,16.8000,4.50,'Exports of Cocoa provide year-end liquidity.'),(116,'2024-12-31',20.10,15.2000,19.1000,16.2000,4.20,'Year ends with improved trade balance.'),(117,'2025-01-31',18.20,14.5000,18.2000,15.5000,5.20,'Post-election stabilization begins.'),(118,'2025-03-31',15.10,13.8000,17.4000,14.9000,5.50,'Central Bank enters easing cycle.'),(119,'2025-06-30',12.40,13.5000,17.2000,14.8000,5.50,'Inflation approaches 24-month lows.'),(120,'2025-09-30',10.10,12.5000,15.9000,13.5000,5.90,'FDI inflows increase as confidence returns.'),(121,'2025-12-31',8.20,12.1000,15.5000,13.1000,5.90,'Factual return to single-digit inflation target.');
+/*!40000 ALTER TABLE `macro_indicators` ENABLE KEYS */;
+UNLOCK TABLES;
+-- SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-08-13 19:13:51
